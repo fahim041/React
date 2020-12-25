@@ -51,7 +51,6 @@ const Search = () => {
             style = {{ width: '40%' } }
             onChange = { e => sTerm(e.target.value) }>
             </input>
-            yes
           </div>
         </div>
       </div>

@@ -13,8 +13,7 @@ const [activeIndex, setActiveIndex ] = useState(null);
       <React.Fragment key={index}>
         <div
         className={`title ${active}`}
-        onClick={() => onTitleClick(index)}
-         >
+        onClick={() => onTitleClick(index)}>
           <i className="dropdown icon"></i>
           {item.title}
         </div>

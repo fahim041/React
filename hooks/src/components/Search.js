@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import axios from 'axios';
 
-const Search = () => {
+const Search = ({label}) => {
     const [term, sTerm] = useState('React');
     const [newTerm, setNewTerm] = useState(term);
     const [results, setResults] = useState([]);
@@ -67,7 +67,7 @@ const Search = () => {
       <div>
         <div className="ui form">
           <div className = "field" >
-            <label > Enter Search Term </label>
+            <label > {label} </label>
             <input className = "input"
             value={term}
             style = {{ width: '40%' } }

@@ -24,7 +24,7 @@ const Translate = () => {
     const [text, setText] = useState('');
 
     return(
-        <div>
+        <div style={style.margin}>
             <div className="ui form">
                 <div className="field" style={{width:'50%'}}>
                 <input value={text} onChange={(e) => setText(e.target.value)} />
@@ -35,13 +35,19 @@ const Translate = () => {
             options={options} 
             selected = {language}
             onSelectedChange = {setLanguage}
-            name = {"Select a Language: "}
+            name = "Select a Language: "
             />
             <hr />
             <h3 className="ui header">Output</h3>
             <Convert text={text} language={language} />
         </div>
     )
+}
+
+const style = {
+    margin : {
+        marginTop: '20px'
+    }
 }
 
 export default Translate;

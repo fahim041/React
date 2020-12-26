@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Accordion from './components/Accordion.js';
 import Search from "./components/Search.js";
+import Dropdown from "./components/dropdown";
 
 const items = [
   {
@@ -13,12 +14,33 @@ const items = [
     title : "What is Vue?",
     content : "Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications."
   }
+];
+
+const options = [
+  {
+    label : 'The Color Red',
+    value : 'red'
+  }, {
+    label : 'The color green',
+    value : 'green'
+  },{
+    label : 'The shade of value',
+    value : 'blue'
+  }
 ]
 
 
+
 const App = () => {
+  const [selected, setSelected] = useState(options[0]);
+
   return <div>
-    <Search />
+    <Dropdown 
+     name = {"Choose a color:"}
+     selected={selected}
+     options={options} 
+     onSelectedChange={setSelected}
+     />
   </div>
 };
 

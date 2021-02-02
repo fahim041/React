@@ -3,7 +3,6 @@ import { fetchEmployeeList, newEmployee, updateEmployee } from '../api';
 import { Link } from 'react-router-dom';
 //import EmployeeInfo from './EmployeeInfo';
  
-
 const EmployeeList = ( props ) => {
     //console.log(props.header);
     const initialFormState = {
@@ -131,6 +130,7 @@ const EmployeeList = ( props ) => {
         }
     }
 	
+	
 	return (
 		<div>
             {result.length > 0  ? 
@@ -209,6 +209,7 @@ const EmployeeList = ( props ) => {
             <div>Ternary Expression</div>
             {show ? <div>True</div> : <></>}
             <button onClick={hide}>Toggle</button>
+			
 		</div>
     )
 }

@@ -51,37 +51,48 @@ class Movies extends Component {
     this.setState({ sortColumn })
   }
 
-  render() {
-    const { length: count } = this.state.movies;
-    const { currentPage, pageSize, genre, selectedGenre, sortColumn } = this.state;
-    if (count === 0) return <p>There are no movies in the database</p>;
-
+  getPageData = () => {
+    const { currentPage, pageSize, selectedGenre, sortColumn } = this.state;
     const filtered = selectedGenre && selectedGenre._id !== '1' ? this.state.movies.filter(m => m.genre._id === selectedGenre._id) : this.state.movies;
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order])
 
     const movies = paginate(sorted, currentPage, pageSize);
 
+    return {
+      totalCount: filtered.length,
+      data: movies,
+      pageSize,
+      currentPage
+    }
+  }
+
+  render() {
+    const { length: count } = this.state.movies;
+    if (count === 0) return <p>There are no movies in the database</p>;
+
+    const { totalCount, data: movies, pageSize, currentPage } = this.getPageData();
+
     return (
       <div className="row mt-5">
         <div className="col-3">
           <ListGroup
-            items={genre}
+            items={this.state.genre}
             onItemSelect={this.handleGenreSelect}
-            selectedItem={selectedGenre}
+            selectedItem={this.state.selectedGenre}
           />
         </div>
         <div className="col">
-          <p>Showing {filtered.length} movies</p>
+          <p>Showing {totalCount} movies</p>
           <MoviesTable
             movies={movies}
-            sortColumn={sortColumn}
+            sortColumn={this.state.sortColumn}
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
           />
           <Pagination
-            itemsCount={filtered.length}
+            itemsCount={totalCount}
             pageSize={pageSize}
             currentPage={currentPage}
             onPageChange={this.handlePageChange}

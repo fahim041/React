@@ -2,17 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 //import App from "./App";
+import { BrowserRouter } from "react-router-dom";
 import Movies from './components/movies';
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <main className="container">
-      <Movies />
-    </main>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <main className="container">
+        <Movies />
+      </main>
+    </React.StrictMode></BrowserRouter>,
   document.getElementById("root")
 );
 

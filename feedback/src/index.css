@@ -32,6 +32,10 @@ header {
     margin-bottom: 30px;
 }
 
+h2{
+    text-align: center;
+}
+
 .card {
     background-color: #fff;
     color: #333;
@@ -227,4 +231,15 @@ input:focus {
     .input-group input {
         width: 80%;
     }
+}
+
+.spinner {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.spinner-size {
+    width: "4rem";
+    height: "4rem"
 }

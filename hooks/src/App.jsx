@@ -5,6 +5,9 @@ import { UseEffectAppTwo } from "./useEffect/UseEffectAppTwo";
 import { UseContextApp } from "./useContext/UseContextApp";
 import { UseRefApp } from "./useRef/UseRefApp";
 import { UseMemoApp } from "./useMemo/UseMemoApp";
+import { UseCallbackApp } from "./useCallback/UseCallbackApp";
+import { UseReducerApp } from "./useReducer/UseReducerApp";
+import { TodoApp } from "./useReducer/TodoApp";
 
 function Home() {
   return (
@@ -28,6 +31,15 @@ function Home() {
       <Link to="/use-memo">
         <h4>useMemo hook</h4>
       </Link>
+      <Link to="/use-callback">
+        <h4>useCallback hook</h4>
+      </Link>
+      <Link to="/use-reducer">
+        <h4>useReducer hook</h4>
+      </Link>
+      <Link to="/use-reducer-todo">
+        <h4>useReducer hook - Todo App</h4>
+      </Link>
     </>
   );
 }
@@ -43,6 +55,9 @@ function App() {
         <Route path="/use-context" element={<UseContextApp />} />
         <Route path="/use-ref" element={<UseRefApp />} />
         <Route path="/use-memo" element={<UseMemoApp />} />
+        <Route path="/use-callback" element={<UseCallbackApp />} />
+        <Route path="/use-reducer" element={<UseReducerApp />} />
+        <Route path="/use-reducer-todo" element={<TodoApp />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

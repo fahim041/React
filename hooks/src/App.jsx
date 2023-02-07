@@ -8,6 +8,8 @@ import { UseMemoApp } from "./useMemo/UseMemoApp";
 import { UseCallbackApp } from "./useCallback/UseCallbackApp";
 import { UseReducerApp } from "./useReducer/UseReducerApp";
 import { TodoApp } from "./useReducer/TodoApp";
+import { UseTransitionApp } from "./useTransition/UseTransitionApp";
+import { UseDeferredApp } from "./useDeferred/UseDeferredApp";
 
 function Home() {
   return (
@@ -40,6 +42,12 @@ function Home() {
       <Link to="/use-reducer-todo">
         <h4>useReducer hook - Todo App</h4>
       </Link>
+      <Link to="/use-transition">
+        <h4>useTransition hook</h4>
+      </Link>
+      <Link to="/use-deferred">
+        <h4>useDeferred hook</h4>
+      </Link>
     </>
   );
 }
@@ -58,6 +66,8 @@ function App() {
         <Route path="/use-callback" element={<UseCallbackApp />} />
         <Route path="/use-reducer" element={<UseReducerApp />} />
         <Route path="/use-reducer-todo" element={<TodoApp />} />
+        <Route path="/use-transition" element={<UseTransitionApp />} />
+        <Route path="/use-deferred" element={<UseDeferredApp />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

@@ -10,6 +10,7 @@ import { UseReducerApp } from "./useReducer/UseReducerApp";
 import { TodoApp } from "./useReducer/TodoApp";
 import { UseTransitionApp } from "./useTransition/UseTransitionApp";
 import { UseDeferredApp } from "./useDeferred/UseDeferredApp";
+import { LocalStorageApp } from "./custom-hooks/local-storage/LocalStorageApp";
 
 function Home() {
   return (
@@ -48,6 +49,26 @@ function Home() {
       <Link to="/use-deferred">
         <h4>useDeferred hook</h4>
       </Link>
+
+      <Link to="/custom-hook">
+        <h2>Custom Hook</h2>
+      </Link>
+    </>
+  );
+}
+
+function CustomHook() {
+  return (
+    <>
+      <h1>Custom Hook</h1>
+
+      <Link to="/custom-hook/use-localstorage">
+        <h3>localStorage hook</h3>
+      </Link>
+
+      <Link to="/">
+        <button>Home</button>
+      </Link>
     </>
   );
 }
@@ -69,6 +90,11 @@ function App() {
         <Route path="/use-transition" element={<UseTransitionApp />} />
         <Route path="/use-deferred" element={<UseDeferredApp />} />
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/custom-hook" element={<CustomHook />} />
+        <Route
+          path="/custom-hook/use-localstorage"
+          element={<LocalStorageApp />}
+        />
       </Routes>
     </>
   );

@@ -7,7 +7,6 @@ function getSavedValue(key, initialValue) {
   if (initialValue instanceof Function) {
     return initialValue();
   }
-  console.log("before return");
   return initialValue;
 }
 

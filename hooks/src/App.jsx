@@ -10,7 +10,9 @@ import { UseReducerApp } from "./useReducer/UseReducerApp";
 import { TodoApp } from "./useReducer/TodoApp";
 import { UseTransitionApp } from "./useTransition/UseTransitionApp";
 import { UseDeferredApp } from "./useDeferred/UseDeferredApp";
-import { LocalStorageApp } from "./custom-hooks/local-storage/LocalStorageApp";
+import { LocalStorageApp } from "./custom-hooks/useLocalStorage/LocalStorageApp";
+import { UseToggleApp } from "./custom-hooks/useToogle/UseToggleApp";
+import { UseDebounceApp } from "./custom-hooks/useDebounce/UseDebounceApp";
 
 function Home() {
   return (
@@ -66,6 +68,14 @@ function CustomHook() {
         <h3>localStorage hook</h3>
       </Link>
 
+      <Link to="/custom-hook/use-toggle">
+        <h3>localToggle hook</h3>
+      </Link>
+
+      <Link to="/custom-hook/use-debounce">
+        <h3>localDebounce hook</h3>
+      </Link>
+
       <Link to="/">
         <button>Home</button>
       </Link>
@@ -95,6 +105,8 @@ function App() {
           path="/custom-hook/use-localstorage"
           element={<LocalStorageApp />}
         />
+        <Route path="/custom-hook/use-toggle" element={<UseToggleApp />} />
+        <Route path="/custom-hook/use-debounce" element={<UseDebounceApp />} />
       </Routes>
     </>
   );

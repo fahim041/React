@@ -13,11 +13,14 @@ import { UseDeferredApp } from "./useDeferred/UseDeferredApp";
 import { LocalStorageApp } from "./custom-hooks/useLocalStorage/LocalStorageApp";
 import { UseToggleApp } from "./custom-hooks/useToogle/UseToggleApp";
 import { UseDebounceApp } from "./custom-hooks/useDebounce/UseDebounceApp";
+import useDarkMode from "./custom-hooks/useDarkMode/useDarkMode";
+import "./body.css";
 
 function Home() {
   return (
-    <>
+    <div style={{ width: "25%" }}>
       <h1>React Hooks</h1>
+
       <Link to="/use-state">
         <h4>useState hook</h4>
       </Link>
@@ -55,7 +58,7 @@ function Home() {
       <Link to="/custom-hook">
         <h2>Custom Hook</h2>
       </Link>
-    </>
+    </div>
   );
 }
 
@@ -73,7 +76,11 @@ function CustomHook() {
       </Link>
 
       <Link to="/custom-hook/use-debounce">
-        <h3>localDebounce hook</h3>
+        <h3>useDebounce hook</h3>
+      </Link>
+
+      <Link to="/custom-hook/use-darkmode">
+        <h3>useDarkMode hook</h3>
       </Link>
 
       <Link to="/">
@@ -84,8 +91,14 @@ function CustomHook() {
 }
 
 function App() {
+  const [darkTheme, setDarkTheme] = useDarkMode();
+
   return (
     <>
+      <button onClick={() => setDarkTheme((prev) => !prev)}>
+        {darkTheme ? "Normal Mode" : "Dark Mode"}
+      </button>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/use-state" element={<UseStateApp />} />
@@ -107,6 +120,7 @@ function App() {
         />
         <Route path="/custom-hook/use-toggle" element={<UseToggleApp />} />
         <Route path="/custom-hook/use-debounce" element={<UseDebounceApp />} />
+        {/* <Route path="/custom-hook/use-darkmode" element={<UseDarkModeApp />} /> */}
       </Routes>
     </>
   );
